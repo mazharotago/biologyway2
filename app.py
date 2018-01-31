@@ -27,6 +27,10 @@ def nucleotide_counter_app():
 
     return (render_template("nucleotide_counter_app_land.html", name=(dictionary,string_new)))
 
+@app.route('googlef4288fe443363ab4.html')
+def google_check():
+    return (render_template('googlef4288fe443363ab4.html'))
+
 
 
 if __name__ == "__main__":
