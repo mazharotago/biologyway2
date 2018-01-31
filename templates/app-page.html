@@ -1,0 +1,54 @@
+{% extends "main_temp.html" %}
+
+{% block content %}
+
+
+
+
+<header class="masthead text-center d-flex">
+
+     <div class="container my-auto">
+         <h1 class="display-3">Bioinformatics Tools</h1>
+    	<div class="row">
+			<div class="col-lg-10 mx-auto">
+				<ul class="event-list">
+                    <li>
+
+                        <img src="{{ url_for('static', filename='images/portfolio/DNA.png')  }}">
+
+
+
+						<div class="info">
+                            <a class="nav-link js-scroll-trigger" href="/nucleotidecount">
+							<h2 class="title">Counting DNA Nucleotides</h2>
+							<p class="desc">Tells the composition of DNA by counting the frequency of G, C, A, T</p>
+                                </a>
+						</div>
+
+
+					</li>
+
+					<li>
+                        <img src="{{ url_for('static', filename='images/portfolio/DNA.png')  }}">
+
+						<div class="info">
+							<h2 class="title">Transcribing DNA to RNA</h2>
+							<p class="desc">Converts the DNA sequence into RNA sequence.</p>
+						</div>
+					</li>
+
+
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+
+
+
+
+
+
+
+{% endblock %}

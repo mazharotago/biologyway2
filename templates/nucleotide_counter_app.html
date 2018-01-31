@@ -1,0 +1,33 @@
+{% extends "main_temp.html" %}
+
+{% block content %}
+
+<header class="masthead text-center d-flex">
+
+     <div class="container my-auto">
+         <h1 class="display-3">Counting DNA Nucleotides</h1>
+    	<div class="row">
+			<div class="col-lg-10 mx-auto">
+				<ul class="event-list">
+
+<form action='/nucleotidecount_app' method="post">
+  <div class="form-group">
+    <label for="nucleotide_seq">Enter your plain text nucleotide (DNA) sequence here:</label>
+    <textarea class="form-control" id="nucleotide_seq" name="nucleotide_seq" rows="10">GCTACCTACTACCGACCTA</textarea>
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+
+
+{% endblock %}
