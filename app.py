@@ -27,9 +27,9 @@ def nucleotide_counter_app():
 
     return (render_template("nucleotide_counter_app_land.html", name=(dictionary,string_new)))
 
-@app.route('/googlef4288fe443363ab4.html')
+@app.route('/sitemap')
 def google_check():
-    return (render_template("j.html"))
+    return (render_template("sitemap.html"))
 
 
 
