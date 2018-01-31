@@ -29,7 +29,7 @@ def nucleotide_counter_app():
 
 @app.route('/sitemap')
 def google_check():
-    return (render_template("sitemap.html"))
+    return (render_template("sitemap.xml"))
 
 
 
