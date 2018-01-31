@@ -2,7 +2,7 @@
 
 {% block content %}
 
-
+<link href="{{ url_for('static', filename='css/special.css') }}" rel="stylesheet">
 <body>
 <header class="masthead text-center d-flex">
 
@@ -34,14 +34,19 @@
 </form>
 
 {% else %}
+                   <div class="container-fluid">
+
+
                     <div class="alert alert-success" role="alert">
   <h4 class="alert-heading">Nucleotide Sequence</h4>
-  <p>{{ name[1] }}</p>
+                        <form>
+                        <p><textarea class="form-control" id="nucleotide_seq" name="nucleotide_seq" rows="10">{{ name[1] }}</textarea></span></p></form>
   <hr>
   <p class="mb-0">Number of nucleotides</p>
                         <p> A:{{ name[0]['A'] }}; G:{{ name[0]['G'] }}; C:{{ name[0]['C'] }}; T:{{ name[0]['T'] }}
 
 </div>
+                       </div>
 
 
 {% endif %}
