@@ -15,7 +15,7 @@ def tools():
 def about():
     return (render_template('about.html'))
 
-#apps
+#NucleotideCounterApp
 @app.route('/nucleotidecount')
 def nucleotide_counter():
     return render_template('nucleotide_counter_app.html')
@@ -26,6 +26,21 @@ def nucleotide_counter_app():
     dictionary,string_new = nc.nucleotide_counter(nucleotide_seq)
 
     return (render_template("nucleotide_counter_app_land.html", name=(dictionary,string_new)))
+
+
+
+
+
+
+
+
+
+
+
+#WebSite_search_engine_maintainance
+@app.route('/sitemap')
+def sitemap():
+    return render_template("sitemap.xml")
 
 
 
