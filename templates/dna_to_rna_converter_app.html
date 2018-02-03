@@ -1,0 +1,35 @@
+{% extends "apps_template.html" %}
+
+{% block meta_title %}DNA to RNA Converter{% endblock %}
+{% block meta_description %}DNA to RNA Converter converts DNA sequence to RNA sequence.{% endblock %}"
+{% block meta_keywords %}transcribe DNA, DNA to RNA, DNA to RNA transcription, dna to rna converter, dna to rna sequence{% endblock %}
+{% block page_title %}DNA to RNA Converter{% endblock %}
+
+
+{% block content %}
+
+<h1 class="display-3">DNA to RNA Converter</h1>
+    	<div class="row">
+			<div class="col-lg-10 mx-auto">
+				<ul class="event-list">
+
+<form action='/tool/dnatornaconvert' method="post">
+  <div class="form-group">
+    <label for="nucleotide_seq">Enter your plain text nucleotide (DNA) sequence here:</label>
+    <textarea class="form-control" id="nucleotide_seq" name="nucleotide_seq" rows="10">GCTACCTACTACCGACCTA</textarea>
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+				</ul>
+			</div>
+		</div>
+
+
+
+
+{% endblock %}

@@ -4,6 +4,7 @@
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113381496-1"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -20,8 +21,6 @@
 <meta name="language" content="English">
 <meta name="revisit-after" content="1 days">
 <meta name="author" content="Mazhar Hussain">
-
-
 
       <header class="intro-header"  style="background-size: 100%; background-image: url({{ url_for('static', filename='images/header.jpg') }})">
 
@@ -72,9 +71,32 @@
       </div>
     </nav>
 
-{% block content %}
+<header class="masthead text-center d-flex">
+
+     <div class="container my-auto">
+
+    {% block content %}
 
     {% endblock %}
+
+
+    <div class="text-right">Developer: <a href="/about">Mazhar Hussain</a><br>
+        <i>PhD student,<br> University of Otago</i></div>
+         <div class="masthead text-left d-flex mt-5">
+         <div>
+<h3>Other Bioinformatics tools</h3>
+    <a class="btn btn-primary btn-sm" href="/tool/nucleotidecount" role="button">DNA Nucleotides Composition</a>
+    <a class="btn btn-primary btn-sm" href="/tool/dnatornaconvert" role="button">DNA to RNA Converter</a>
+</div>
+             </div>
+
+
+         </div>
+    </header>
+
+
+
+
 
     <!-- Bootstrap core JavaScript -->
 

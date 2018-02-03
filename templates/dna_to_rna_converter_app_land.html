@@ -1,24 +1,25 @@
 {% extends "apps_template.html" %}
 
-{% block meta_title %}DNA Nucleotides Composition{% endblock %}
-{% block meta_description %}DNA Nucleotide Counter determines nucleic acid composition. It determines number of nucleotides (A, T, G, C).{% endblock %}"
-{% block meta_keywords %}nucleic acid composition, count nucleotides, number of nucleotide {% endblock %}
-{% block page_title %}DNA Nucleotides Composition{% endblock %}
+{% block meta_title %}DNA to RNA Converter{% endblock %}
+{% block meta_description %}DNA to RNA Converter converts DNA sequence to RNA sequence.{% endblock %}"
+{% block meta_keywords %}transcribe DNA, DNA to RNA, DNA to RNA transcription, dna to rna converter, dna to rna sequence{% endblock %}
+{% block page_title %}DNA to RNA Converter{% endblock %}
 
 
 {% block content %}
 
 
+
 <link href="{{ url_for('static', filename='css/special.css') }}" rel="stylesheet">
 <body>
 
-         <h1 class="display-3">DNA Nucleotides Composition</h1>
+         <h1 class="display-3">DNA to RNA Converter</h1>
     	<div class="row">
 			<div class="col-lg-10 mx-auto">
 				<ul class="event-list">
                     <p>
 
-{% if name[0] == "Sorry Bad Sequence" %}
+{% if dtr_seq[1] == "bad" %}
                    <div class="alert alert-danger" role="alert">
 
 
@@ -30,7 +31,7 @@
                     <form action='/tool/nucleotidecount' method="post">
   <div class="form-group">
     <label for="nucleotide_seq">Enter your plain text nucleotide (DNA) sequence here:</label>
-    <textarea class="form-control" id="nucleotide_seq" name="nucleotide_seq" rows="10">{{ name[1] }}</textarea>
+    <textarea class="form-control" id="nucleotide_seq" name="nucleotide_seq" rows="10">{{ dtr_seq[0]  }}</textarea>
   </div>
 
 
@@ -45,10 +46,9 @@
                     <div class="alert alert-success" role="alert">
   <h4 class="alert-heading">Nucleotide Sequence</h4>
                         <form>
-                        <p><textarea class="form-control" id="nucleotide_seq" name="nucleotide_seq" rows="10">{{ name[1] }}</textarea></span></p></form>
-  <hr>
-  <p class="mb-0">Number of nucleotides</p>
-                        <p> A:{{ name[0]['A'] }}; G:{{ name[0]['G'] }}; C:{{ name[0]['C'] }}; T:{{ name[0]['T'] }}
+                        <p><textarea class="form-control" id="nucleotide_seq" name="nucleotide_seq" rows="10">{{ dtr_seq[0]  }}</textarea></span></p></form>
+
+
 
 </div>
                        </div>
@@ -62,6 +62,5 @@
 
 </body>
 
+
 {% endblock %}
-
-
