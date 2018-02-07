@@ -1,0 +1,165 @@
+{% extends "apps_template.html" %}
+
+{% block meta_title %}GC Content Calculator{% endblock %}
+{% block meta_description %}GC Content Calculator is a very useful application which determines percent GC content of DNA.
+GC content analysis has several uses in Molecular Biology (i.e Primer Designing){% endblock %}"
+{% block meta_keywords %}gc content, gc content calculator, gc content analysis, gc content of dna,
+gc content analysis tool, gc content determination, gc content tool{% endblock %}
+{% block page_title %}GC Content Calculator{% endblock %}
+
+
+{% block content %}
+
+<h1 class="display-3">GC Content Calculator</h1>
+    	<div class="row">
+			<div class="col-lg-10 mx-auto">
+				<div class="event-list">
+
+{% if gc_content_count == "Multiple sequences are having same name - change name" %}
+ <div class="alert alert-danger" role="alert">
+
+
+                    <strong>{{ "Matching Names:" }}</strong>
+                    {{ "Please rename one or more of the sequence(s)" }}
+                       </div>
+
+
+<form action='/tool/gccontent' method="post">
+  <div class="form-group">
+    <label for="nucleotide_seq">Paste DNA sequence(s) in FASTA format:</label>
+    <textarea class="form-control" id="nucleotide_seq" name="nucleotide_seq" rows="10">{{ sequence }}</textarea>
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% elif gc_content_count == "function breaks" %}
+
+<div class="alert alert-danger" role="alert">
+
+
+                    <strong>{{ "FASTA failed:" }}</strong>
+                    {{ "Please provide sequence(s) in FASTA format" }}
+                       </div>
+
+
+<form action='/tool/gccontent' method="post">
+  <div class="form-group">
+    <label for="nucleotide_seq">Paste DNA sequence(s) in FASTA format:</label>
+    <textarea class="form-control" id="nucleotide_seq" name="nucleotide_seq" rows="10">{{ sequence }}</textarea>
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+{% elif gc_content_count == "bad sequence" %}
+
+<div class="alert alert-danger" role="alert">
+
+
+                    <strong>{{ "Bad Sequence:" }}</strong>
+                    {{ "Please provide valid nucleotide sequence consisting only on G, C, A and T" }}
+                       </div>
+
+
+<form action='/tool/gccontent' method="post">
+  <div class="form-group">
+    <label for="nucleotide_seq">Paste DNA sequence(s) in FASTA format:</label>
+    <textarea class="form-control" id="nucleotide_seq" name="nucleotide_seq" rows="10">{{ sequence }}</textarea>
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+{% elif gc_content_count == "No sequence(s) added" %}
+
+<div class="alert alert-danger" role="alert">
+
+
+                    <strong>{{ "No Sequence:" }}</strong>
+                    {{ "Please add one or more DNA sequence(s) in FASTA format" }}
+                       </div>
+
+
+<form action='/tool/gccontent' method="post">
+  <div class="form-group">
+    <label for="nucleotide_seq">Paste DNA sequence(s) in FASTA format:</label>
+    <textarea class="form-control" id="nucleotide_seq" name="nucleotide_seq" rows="10">{{ sequence }}</textarea>
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% elif gc_content_count == "EmptySequence_Error" %}
+
+<div class="alert alert-danger" role="alert">
+
+
+                    <strong>{{ "Orphan Sequence Header:" }}</strong>
+                    {{ "One or more sequence(s) are missing" }}
+                       </div>
+
+
+<form action='/tool/gccontent' method="post">
+  <div class="form-group">
+    <label for="nucleotide_seq">Paste DNA sequence(s) in FASTA format:</label>
+    <textarea class="form-control" id="nucleotide_seq" name="nucleotide_seq" rows="10">{{ sequence }}</textarea>
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% else  %}
+
+<div class="container-fluid-center">
+
+
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading"><strong>Result</strong></h4>
+<table class="table">
+    <thead class="thead-inverse">
+  <tr>
+
+    <th>Sequence Name</th>
+      <th>% GC Content</th> </tr></thead>
+
+{% for seq_name in gc_content_count.keys() %}
+
+
+
+    <td>{{ seq_name }}</td>
+    <td>{{ gc_content_count[seq_name] }}</td> </tr>
+
+
+
+
+{% endfor %}
+</table>
+                    </div></div>
+
+{% endif %}
+
+
+
+
+
+                    		</ul>
+			</div>
+		</div>
+        </div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "apps_template.html" %}
+
+{% block meta_title %}GC Content Calculator{% endblock %}
+{% block meta_description %}GC Content Calculator is a very useful application which determines percent GC content of DNA.
+GC content analysis has several uses in Molecular Biology (i.e Primer Designing){% endblock %}"
+{% block meta_keywords %}gc content, gc content calculator, gc content analysis, gc content of dna,
+gc content analysis tool, gc content determination, gc content tool{% endblock %}
+{% block page_title %}GC Content Calculator{% endblock %}
+
+
+{% block content %}
+
+
+
+
+         <h1 class="display-3">GC Content Calculator</h1>
+    	<div class="row">
+			<div class="col-lg-10 mx-auto">
+				<ul class="event-list">
+
+<form action='/tool/gccontent' method="post">
+  <div class="form-group">
+    <label for="nucleotide_seq">Paste DNA sequence(s) in FASTA format:</label>
+    <textarea class="form-control" id="nucleotide_seq" name="nucleotide_seq" rows="10">>sequence_1
+GCTATAGCTACCTACTACTACCTACTATTACTACCTACCTACTATACT
+>sequence_2
+TACTACCCCTACTATTACGTACTATACTACCCCTACTATTACGTACTA</textarea>
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+				</ul>
+			</div>
+		</div>
+
+
+{% endblock %}
